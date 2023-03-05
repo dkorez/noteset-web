@@ -1,0 +1,41 @@
+
+$text-default-color: rgba(30, 41, 59, 1);
+$text-default-color-op6: rgba(30, 41, 59, .6);
+$default-button-color: #4f46e5;
+
+.folder-container {
+  padding: 2rem 1rem 2rem 0;
+}
+
+.folder-item {
+  font-weight: 500!important;
+  padding: 0.5rem 1rem;
+  margin-bottom: 4px;
+  border-radius: 9999px;
+  align-items: center;
+  display: flex;
+}
+
+.folder-item:hover {
+  background-color: rgba(148,163,184,.12);
+}
+
+.folder-item-selected {
+  background-color: rgba(148,163,184,.12);
+}
+
+.folder-item-selected .folder-name a, .folder-item-selected .folder-icon {
+  color: $default-button-color;
+}
+
+.folder-name, .folder-name a {
+  color: $text-default-color;
+  margin-left: 0.75rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+}
+
+.folder-icon {
+  color: $text-default-color-op6;
+}
+

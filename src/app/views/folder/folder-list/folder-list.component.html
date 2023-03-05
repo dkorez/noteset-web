@@ -1,0 +1,9 @@
+
+<div class="folder-container">
+
+  <div *ngFor="let folder of folders" class="folder-item" [ngClass]="{'folder-item-selected' : (folder.id == selFolderId)}">
+    <div class="folder-icon"><mat-icon>folder</mat-icon></div>
+    <div class="folder-name"><a [routerLink]="['/notes', folder.id]">{{folder.name}}</a></div>
+  </div>
+</div>
+

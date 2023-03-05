@@ -1,0 +1,70 @@
+
+<mat-drawer-container autosize class="folder-container">
+  <mat-drawer #folderList class="folder-menu bg-default" mode="side" [opened]="opened$ | async">
+    <app-folder-list></app-folder-list>
+  </mat-drawer>
+
+  <div class="">
+    <div class="folder-toolbar flex align-center">
+      <div class="folder-toolbar-search">
+        <button mat-icon-button class="folder-list-switch" mat-button (click)="folderList.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- SEARCH -->
+        <mat-form-field [floatLabel]="'never'" class="search-full flex-auto">
+          <div class="search-full-wrapper">
+            <div class="search-icon">
+              <mat-icon matPrefix >search</mat-icon>
+            </div>
+
+            <div class="search-input">
+              <input type="text" matInput placeholder="Search notes">
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <button [matMenuTriggerFor]="addNewMenu" class="mdc-button menu-btn">
+          <!--<mat-icon>plus-circle</mat-icon>-->
+          <span>Add new</span>
+      </button>
+    </div>
+
+    <div class="folder-content">
+      <div *ngIf="noteList" class="grid grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+        <div *ngFor="let note of noteList">
+          <app-note-card [note]=note></app-note-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</mat-drawer-container>
+
+
+
+<mat-menu #addNewMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item>
+    <mat-icon>create_new_folder</mat-icon>
+    <span>Add Folder</span>
+  </button>
+
+  <button [matMenuTriggerFor]="noteMenu" mat-menu-item>
+    <mat-icon>note_add</mat-icon>
+    <span>Add Note</span>
+  </button>
+</mat-menu>
+
+<mat-menu #noteMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>note_add</mat-icon>
+    <span>Note</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>note_add</mat-icon>
+    <span>Memo</span>
+  </button>
+</mat-menu>

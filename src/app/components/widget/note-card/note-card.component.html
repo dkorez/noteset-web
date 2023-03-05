@@ -1,0 +1,9 @@
+<mat-card class="note-card card" (click)="openNote()">
+  <mat-card-header>
+    <mat-card-title>{{note?.subject}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="p-4">
+    <p>{{note?.content}}</p>
+  </mat-card-content>
+</mat-card>

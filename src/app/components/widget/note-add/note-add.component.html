@@ -1,0 +1,47 @@
+
+<div class="note-card-wrapper">
+  <div mat-dialog-content>
+    <form [formGroup]="editForm">
+
+      <div class="note-title flex items-center justify-between">
+        <div class="note-input w-full">
+          <input type="text" placeholder="Subject..." formControlName="subject" >
+        </div>
+
+        <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon></button>
+      </div>
+      <div class="grid grid-cols-2 my-2">
+        <div class="note-input w-full">
+          <select formControlName="folder">
+            <option value="" disabled selected>Folder</option>
+            <option *ngFor="let folder of folders" [value]="folder.id">{{folder.name}}</option>
+          </select>
+        </div>
+
+        <div class="note-input w-full">
+          <select formControlName="noteType">
+            <option value="" disabled selected>Note type</option>
+            <option *ngFor="let type of getNoteTypes()" [value]="type">{{type}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="note-body">
+        <div class="note-input">
+          <textarea cols="10" placeholder="Content..." formControlName="content"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div mat-dialog-actions>
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-center">
+        <!-- add some buttons -->
+      </div>
+
+      <button mat-button class="btn-dialog-icon" (click)="saveNote()"><mat-icon>save</mat-icon><span>Save</span></button>
+    </div>
+  </div>
+</div>
+

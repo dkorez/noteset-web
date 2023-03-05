@@ -1,0 +1,56 @@
+<div class="note-card-wrapper">
+  <form [formGroup]="editForm">
+    <div mat-dialog-content>
+      <div class="note-title flex items-center justify-between">
+        <span *ngIf="!isEditMode">{{ note!.subject }}</span>
+        <h2 *ngIf="isEditMode">Edit note</h2>
+        <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon></button>
+      </div>
+      <div class="note-body">
+        <div *ngIf="isEditMode" class="note-input w-full my-2">
+          <input type="text" placeholder="Subject..." formControlName="subject">
+        </div>
+
+        <div class="grid grid-cols-2 my-2">
+          <div class="note-input w-full">Folder: {{ note!.folder!.name }}</div>
+
+          <div class="note-input w-full">
+            <div style="float: right;" *ngIf="!isEditMode">Note type: {{ note!.noteType }}</div>
+
+            <select *ngIf="isEditMode" formControlName="noteType">
+              <option value="" disabled selected>Note type</option>
+              <option *ngFor="let type of getNoteTypes()" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div *ngIf="!isEditMode">{{ note!.content }}</div>
+
+        <div *ngIf="isEditMode" class="note-input w-full">
+          <textarea cols="10" placeholder="Content..." formControlName="content"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div mat-dialog-actions>
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center">
+          <button mat-button class="dialog-icon" (click)="deleteNote()">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-button class="dialog-icon" [routerLink]="['/notes/note/', note!.guid]">
+            <mat-icon>open_with</mat-icon>
+          </button>
+        </div>
+
+        <button *ngIf="isEditMode" mat-button class="btn-dialog-icon" (click)="saveNote()">
+          <mat-icon>save</mat-icon><span>Save</span>
+        </button>
+        <button *ngIf="!isEditMode" mat-button class="btn-dialog-icon" (click)="editNote()">
+          <mat-icon>edit</mat-icon><span>Edit</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

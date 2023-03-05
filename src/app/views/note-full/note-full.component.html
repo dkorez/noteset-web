@@ -1,0 +1,36 @@
+<div class="note-card-wrapper">
+  <div >
+    <form [formGroup]="editForm">
+
+      <div class="note-title">
+        <span *ngIf="!isEditMode">{{note!.subject}}</span>
+
+        <div *ngIf="isEditMode" class="note-input w-full">
+          <input type="text" placeholder="Subject..." formControlName="subject" >
+        </div>
+
+      </div>
+      <div class="note-body">
+        <span *ngIf="!isEditMode">{{note!.content}}</span>
+
+        <div *ngIf="isEditMode" class="note-input">
+          <textarea cols="10" placeholder="Content..." formControlName="content"></textarea>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+  <div >
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-center">
+        <button mat-button class="dialog-icon" (click)="deleteNote()"><mat-icon>delete</mat-icon></button>
+      </div>
+
+      <button *ngIf="isEditMode" mat-button class="btn-dialog-icon" (click)="saveNote()"><mat-icon>save</mat-icon><span>Save</span></button>
+      <button *ngIf="!isEditMode" mat-button class="btn-dialog-icon" (click)="editNote()"><mat-icon>edit</mat-icon><span>Edit</span></button>
+    </div>
+  </div>
+</div>
+

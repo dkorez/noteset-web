@@ -1,0 +1,29 @@
+
+<div class="note-card-wrapper">
+  <div mat-dialog-content>
+    <form [formGroup]="editForm">
+
+      <div class="note-title flex items-center justify-between">
+        <h2>Add folder</h2>
+        <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon></button>
+      </div>
+      <div class="note-body">
+        <div class="note-input">
+          <input type="text" placeholder="Title..." formControlName="title" >
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div mat-dialog-actions>
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-center">
+        <!-- add some buttons -->
+      </div>
+
+      <button mat-button class="btn-dialog-icon" (click)="saveFolder()"><mat-icon>save</mat-icon><span>Save</span></button>
+    </div>
+  </div>
+</div>
+
