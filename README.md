@@ -2,7 +2,6 @@
 Noteset is a simple application to edit and organize notes. The goal of this project is to research and implement new technologies using Java Spring Boot and Angular frameworks.\
 Demo is available at [https://noteset-app.dkorez.dev](https://noteset-app.dkorez.dev)\
 Please note that this project is still in early phase and some important features like user registration and propper database connection are not implemented yet.\
-\
 
 This application is split into two parts, that is [Noteset API](https://github.com/dkorez/noteset-api) and [Noteset web](https://github.com/dkorez/noteset-web).
 
@@ -24,7 +23,7 @@ Install required dependencies with the following command:\
 `npm install`\
 Then start application with the following command:\
 `ng serve`\
-visit application on http://localhost:4200\
+visit application on http://localhost:4200
 \
 
 To build the application, use the following command:\
